@@ -1,28 +1,27 @@
+class Solution():
+    def twoSum(self, nums, target):
+        n = len(nums)
 
-lst = input("Enter a list of numbers separated by spaces: ")
-target = int(input("Enter the target number: "))
+        for i in range(n):
+            if not -10**9 <= nums[i] <= 10**9:
+                    raise ValueError("Invalid input")
 
-numbers = lst.split()
-n = len(numbers)
-
-for i in range(n):
-    numbers[i] = int(numbers[i])
-    if not -10**9 <= numbers[i] <= 10**9:
+        if not 2 <= n <= 10**4:
             raise ValueError("Invalid input")
 
-if not 2 <= n <= 10**4:
-    raise ValueError("Invalid input")
+        if not -10**9 <= target <= 10**9:
+            raise ValueError("Invalid input")
 
-if not -10**9 <= target <= 10**9:
-    raise ValueError("Invalid input")
+        x = {}
 
-def two_sum(n, numbers, target):
-    
-    for i in range(n):
-        for j in range(n):
-            if numbers[i] + numbers[j] == target and i != j:
-                print("numbers: ", numbers)
-                return [i, j]
+        for i in range(n):
+            current = nums[i]
+            snd = target - current
+            if snd in x:
+                return (x[snd], i)
+                break
+            x[current] = i
 
-func = two_sum(n, numbers, target)
-print(func)
+s = Solution()
+print(s.twoSum([2, 7, 11, 15], 9))
+      
