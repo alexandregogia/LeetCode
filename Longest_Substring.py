@@ -16,7 +16,7 @@ class Solution(object):
 
             seen[s[right]] = right
             max_length = max(max_length, right - left + 1)
-            right +=1
+            right += 1
         return max_length
 
 s = Solution()
